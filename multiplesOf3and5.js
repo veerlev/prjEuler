@@ -4,18 +4,10 @@ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
 Find the sum of all the multiples of 3 or 5 below the provided parameter value number.
 */
 function multiplesOf3and5(number) {
-  // Good luck!
-  var sum = 0;
-  for (var i = 1; i * 3 < number; i++){
-    sum += i * 3;
-  }
-  for (var i = 1; i * 5 < number; i++){
-    var multiple = i * 5;
-    if (multiple % 3 !== 0) {
-      sum += multiple;
-    }
-  }
-  return sum;
+  number--;
+  var m3 = Math.floor(number/3);
+  var m5 = Math.floor(number/5);
+  var m15 = Math.floor(number/15);
+  return 0.5 * (3 * m3 * (m3 + 1) + 5 * m5 * (m5 + 1)
+  - 15 * m15 * (m15 +1))
 }
-
-multiplesOf3and5(1000);
